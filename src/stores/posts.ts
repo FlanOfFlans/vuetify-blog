@@ -1,4 +1,4 @@
-import { type BlogPost, type PostId, type NewPostModel, blogPostReviver} from '@/types/blogPosts'
+import { type BlogPost, type PostId, type NewPostModel, blogPostReviver, type EditPostModel} from '@/types/blogPosts'
 import { defineStore } from 'pinia'
 
 export type PostsState = {
@@ -36,15 +36,15 @@ export const usePostStore = defineStore('app', {
         },
 
         // TODO make the edit model more extensible
-        editPost(id: PostId, newBody: string, newTitle: string) {
+        editPost(id: PostId, model: EditPostModel) {
             const post = this.posts?.get(id);
 
             if (post == null) {
                 throw new ReferenceError(`Attempted to edit nonexistent post with ID ${id}`)
             }
 
-            post.body = newBody;
-            post.title = newTitle;
+            post.body = model.body ?? post.body;
+            post.title = model.title ?? post.title;
             post.lastEdited = new Date();
             
             this.posts.set(post.id, post);

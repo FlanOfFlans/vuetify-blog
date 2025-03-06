@@ -124,11 +124,13 @@ function cancelEdit() {
 }
 
 function saveEdit() {
-    debugger;
     if (model.value == null) { return; }
     if (!isValidEdit.value) { return; }
     
-    store.editPost(model.value, editedBody.value, editedTitle.value);
+    store.editPost(model.value, {
+        body: editedBody.value,
+        title: editedTitle.value
+    });
     editing.value = false;
     emit("edit", model.value);
 }

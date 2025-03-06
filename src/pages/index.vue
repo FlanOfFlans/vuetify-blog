@@ -25,7 +25,7 @@
                 :key="post.id"
                 class="d-flex justify-center pt-1"
             >
-                <BlogPostCard v-model="post.id"/>
+                <BlogPost v-model="post.id"/>
             </div>
         </v-sheet>
     </div>
@@ -42,8 +42,7 @@
 <script setup lang="ts">
 import { usePostStore } from '@/stores/posts';
 import { computed } from 'vue';
-// TODO rename blog post
-import BlogPostCard from '@c/BlogPost.vue';
+import BlogPost from '@c/BlogPost.vue';
 
 const store = usePostStore();
 

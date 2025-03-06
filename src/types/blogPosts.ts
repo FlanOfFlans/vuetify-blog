@@ -18,3 +18,4 @@ export const blogPostReviver = pipeRevivers([
 ]);
 
 export type NewPostModel = Pick<BlogPost, "title" | "body" | "author">
+export type EditPostModel = Partial<Pick<BlogPost, "title" | "body">>
