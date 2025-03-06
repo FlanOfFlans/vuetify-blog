@@ -40,7 +40,7 @@ export const usePostStore = defineStore('app', {
             const post = this.posts?.get(id);
 
             if (post == null) {
-                throw new ReferenceError(`Attempted to edit nonexistent post with ID ${id}`)
+                throw new ReferenceError(`Attempted to edit nonexistent post with ID ${id}`);
             }
 
             post.body = model.body ?? post.body;
@@ -58,11 +58,11 @@ export const usePostStore = defineStore('app', {
                 id: crypto.randomUUID(),
                 posted: new Date(),
                 ...model
-            } as BlogPost
+            } as BlogPost;
 
             this.posts!.set(post.id, post);
             this.save();
-        }
+        },
     },
 
     getters: {
@@ -75,6 +75,6 @@ export const usePostStore = defineStore('app', {
 
             return Array.from(state.posts.values())
                 .sort((a, b) => b.posted.getTime() - a.posted.getTime());
-        }}
+        }},
     }
 })

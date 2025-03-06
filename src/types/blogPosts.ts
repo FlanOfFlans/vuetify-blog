@@ -1,5 +1,5 @@
 import { pipeRevivers, asDate } from "@/jsonRevivers";
-import type { User } from "@/types/users"
+import type { User } from "@/types/users";
 
 export type PostId = string & { __brand: "BlogPostId" };
 
@@ -10,12 +10,12 @@ export interface BlogPost {
     body: string;
     posted: Date;
     lastEdited?: Date;
-}
+};
 
 export const blogPostReviver = pipeRevivers([
     asDate("posted"),
     asDate("lastEdited"),
 ]);
 
-export type NewPostModel = Pick<BlogPost, "title" | "body" | "author">
-export type EditPostModel = Partial<Pick<BlogPost, "title" | "body">>
+export type NewPostModel = Pick<BlogPost, "title" | "body" | "author">;
+export type EditPostModel = Partial<Pick<BlogPost, "title" | "body">>;
