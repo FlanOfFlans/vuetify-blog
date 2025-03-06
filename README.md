@@ -4,7 +4,7 @@ This is my submission for the 'Build a Blog' challenge, issued as part of the ap
 
 Local session storage is used for persistence of data between refreshes; please ensure local storage is permitted for this app!
 
-Install, server start-up, and building unchanged from the default Vuetify scaffold. Instructions have been copied below.
+Install, server start-up, and building are unchanged from the default Vuetify scaffold. Instructions have been copied below.
 
 ## 💿 Install
 
